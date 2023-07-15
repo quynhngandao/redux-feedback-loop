@@ -1,47 +1,33 @@
 import React, { Suspense, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import {HashRouter as Router, Route, Link} from "react-router-dom" 
+import {HashRouter as Router, Switch, Route} from "react-router-dom" 
 import {useDispatch} from "react-redux"
 
 // import components 
 import Admin from '../Admin/Admin';
 import Header from '../Header/Header';
-import Comment from '../Comment/Comment';
-import Feeling from '../Feeling/Feeling';
-import Support from '../Support/Support';
-import Understanding from '../Understanding/Understanding';
+import Comment from '../Pages/Comment/Comment';
+import Feeling from '../Pages/Feeling/Feeling';
+import Support from '../Pages/Support/Support';
+import Understanding from '../Pages/Understanding/Understanding';
+import Submit from '../Pages/Submit/Submit';
 
 function App() {
 
   return (
-    <div className='App'>
-      <Header/>
-      
+    <div className='App'>  
       <Router>
-        <ul className='nav'>
-          <li>
-            <Link>Home</Link>
-          </li>
-          <li>
-            <Link>Feeling</Link>
-          </li>
-          <li>
-            <Link>Understanding</Link>
-          </li>
-          <li>
-            <Link>Support</Link>
-          </li>
-          <li>
-            <Link>Comment</Link>
-          </li>
-        </ul>
+<Header/>
+
+       <Switch>
         <Route exact path="/"><Admin/></Route>
-        <Route exact path="/1"><Feeling/></Route>
-        <Route exact path="/2"><Understanding/></Route>
-        <Route exact path="/3"><Support/></Route>
-        <Route exact path="/4"><Comment/></Route>
-        <Route exact path="/submit"><Submit/></Route>
+        <Route  path="/feeling"><Feeling/></Route>
+        <Route  path="/understanding"><Understanding/></Route>
+        <Route  path="/support"><Support/></Route>
+        <Route  path="/comment"><Comment/></Route>
+        <Route  path="/review"><Submit/></Route>
+        </Switch>
       </Router>
     </div>
   );
