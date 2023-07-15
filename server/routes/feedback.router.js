@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-// GET feedback
+// GET feedbacks
 router.get("/", (req, res) => {
   pool
     .query('SELECT * FROM "feedback" ORDER BY id;')
-    .then((res) => {
+    .then((result) => {
       console.log("DB query successful");
-      res.send(res.rows);
+      res.send(result.rows);
     })
     .catch((err) => {
       console.log("Error DB query in GET /feedback", err);
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// POST feedback
+// POST feedbacks
 router.post("/", (req, res) => {
   const feeling = req.body.feeling;
   const understanding = req.body.understanding;
@@ -28,8 +28,8 @@ router.post("/", (req, res) => {
       `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`,
       [feeling, understanding, support, comments]
     )
-    .then((res) => {
-      console.log("Added input to DB", res);
+    .then((result) => {
+      console.log("Added input to DB", result);
       res.sendStatus(201);
     })
     .catch((err) => {

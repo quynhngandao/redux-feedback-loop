@@ -9,8 +9,8 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 // admin 
-const feedback = (state = [], action) => {
-    if (action.type === "SAVE_FEEDBACK") {
+const feedbacks = (state = [], action) => {
+    if (action.type === "SAVE_FEEDBACKS") {
         return action.payload;
     }
     return state;
@@ -51,7 +51,7 @@ const comments = (state = [], action) => {
 // store
 const store = createStore(
   combineReducers({
-    feedback,
+    feedbacks,
     feeling,
     understanding,
     support,

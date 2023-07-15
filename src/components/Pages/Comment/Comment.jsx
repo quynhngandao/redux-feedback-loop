@@ -10,15 +10,20 @@ const ariaLabel = { "aria-label": "description" };
 
 function Comment() {
   const [comments, setComment] = useState("");
-
   // dispatch input data to store 
   const dispatch = useDispatch()
 
   // POST data to database 
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    
+  }
 
 
   return (
     <Box
+    onSubmit={handleSubmit}
       component="form"
       sx={{ "& > :not(style)": { m: 1 } }}
       noValidate
