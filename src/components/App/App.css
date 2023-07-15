@@ -1,12 +1,14 @@
-.App {
+.App, .App-title, .App-header, .App-description {
   text-align: center;
+  color:
+  #2979ff;
+  ;
 }
 
 .App-header {
   background-color: #000000;
   min-height: 70px;
   padding: 20px;
-  color: white;
   margin-bottom: 20px;
 }
 
@@ -14,7 +16,7 @@
   font-size: 2em;
 }
 
-.App-intro {
+.App-description {
   font-size: large;
 }
 

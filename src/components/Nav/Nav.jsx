@@ -11,7 +11,7 @@ function Nav() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 1000) {
       setButton(false);
     } else {
       setButton(true);
@@ -26,7 +26,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="navbar" color="white">
+      <nav className="navbar" >
         <div className="navbar-container">
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -34,7 +34,7 @@ function Nav() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Home
                 </Button>
               </Link>
@@ -43,9 +43,10 @@ function Nav() {
               <Link
                 to="/feeling"
                 className="nav-links"
+                
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Feeling
                 </Button>
               </Link>
@@ -56,7 +57,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined"sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Understanding
                 </Button>
               </Link>
@@ -67,7 +68,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Support
                 </Button>
               </Link>
@@ -79,7 +80,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Comment
                 </Button>
               </Link>
@@ -90,7 +91,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
                   Review
                 </Button>
               </Link>

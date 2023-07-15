@@ -27,7 +27,7 @@ function Feeling() {
         inputProps={ariaLabel}
         value={feeling}
       />
-      <Button variant="outlined" onClick={handleChange}>
+      <Button variant="outlined"  onClick={handleChange}>
         Next
       </Button>
     </Box>
