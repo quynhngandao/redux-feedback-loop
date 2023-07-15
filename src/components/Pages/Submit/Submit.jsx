@@ -1,12 +1,9 @@
 import { Button } from "@mui/material";
 import axios from "axios";
-import React from "react";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 
-function Submit() {
-  // send feedback to store on submit
-  const dispatch = useDispatch();
+function Submit({fetchFeedbacks}) {
+  const feedbacks = useSelector((store) => {store.feedbacks})
   // grab data from store
   const feeling = useSelector((store) => {
     store.feeling;
@@ -17,25 +14,22 @@ function Submit() {
   const support = useSelector((store) => {
     store.support;
   });
-  const comment = useSelector((store) => {
-    store.comment;
+  const comments = useSelector((store) => {
+    store.comments;
   });
+
   // POST feedback to database
-
-  const feedbackToSend = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     axios
-      .post("/feedback", [])
-      .then((res) => {})
+      .post("/feedbacks", feedbacks)
+      .then((res) => {
+         fetchFeedbacks()
+        console.log("success in POST to DB");
+      })
       .catch((err) => {
-        console.log("error in POST", err);
+        console.log("error in POST to DB", err);
       });
-  };
-
-  const handleSubmit = () => {
-    dispatch({
-      type: "SAVE_FEEDBACK",
-      payload: { feeling, understanding, support, comment },
-    });
   };
 
   return (
@@ -50,8 +44,8 @@ function Submit() {
       <h5 className="Support">
         Support: <span>{support}</span>
       </h5>
-      <h5 className="Comment">
-        Comment: <span>{comment}</span>
+      <h5 className="Comments">
+        Comments: <span>{comments}</span>
       </h5>
       <Button
         onClick={handleSubmit}

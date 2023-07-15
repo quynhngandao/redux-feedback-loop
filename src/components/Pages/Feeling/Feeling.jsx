@@ -1,35 +1,55 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Input from "@mui/material/Input";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const ariaLabel = { "aria-label": "description" };
+export default function Feeling () {
+  // State
+  const [feeling, setFeeling] = useState('');
+  // Dispatch 
+  const dispatch = useDispatch();
+  // History
+const history = useHistory()
 
-function Feeling() {
-  const [feeling, setFeeling] = useState("");
+  const handleChange = (event) => {
+    // set feeling to user input 
+    setFeeling(event.target.value);
+  };
+
+  const handleNext = () => {
+ // dispatch here to store 
+ dispatch({type: "FEELING", payload: feeling})
+ history.push('/understanding')
+  }
 
   return (
-    <Box
-      component="form"
-      sx={{ "& > :not(style)": { m: 1 } }}
-      noValidate
-      autoComplete="off"
-    >
-      <Input
-      type="number"
-        style={{ width: 500 }}
-        label="Feeling"
-        color="secondary"
-        placeholder="How Are You Feeling Today?"
-        inputProps={ariaLabel}
-        value={feeling}
-        onChange={(e) => setFeeling(e.target.value)}
-      />
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">How Are You Feeling Today?</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={feeling}
+          label="Feeling"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+        </Select>
+      </FormControl>
       <Button
         sx={{ fontFamily: "Rubik Bubbles" }}
         variant="contained"
-        onClick={() => setFeeling(feeling)}
+        onClick={handleNext}
       >
         Next
       </Button>
@@ -37,4 +57,14 @@ function Feeling() {
   );
 }
 
-export default Feeling;
+
+
+
+
+
+
+
+
+
+
+

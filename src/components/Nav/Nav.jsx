@@ -76,12 +76,12 @@ function Nav() {
 
             <li className="nav-item">
               <Link
-                to="/comment"
+                to="/comments"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
                 <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
-                  Comment
+                  Comments
                 </Button>
               </Link>
             </li>

@@ -1,36 +1,55 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Input from "@mui/material/Input";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const ariaLabel = { "aria-label": "description" };
+export default function Understanding () {
+  // State
+  const [understanding, setUnderstanding] = useState('');
+  // Dispatch 
+  const dispatch = useDispatch();
+  // History
+  const history = useHistory()
 
-function Understanding() {
-  const [understanding, setUnderstanding] = useState("");
+  const handleChange = (event) => {
+    // set support to user input 
+    setUnderstanding(event.target.value);
+  };
+
+  const handleNext = () => {
+ // dispatch here to store 
+ dispatch({type: "UNDERSTANDING", payload: understanding})
+ history.push('/support')
+  }
 
   return (
-    <Box
-      component="form"
-      sx={{ "& > :not(style)": { m: 1 } }}
-      noValidate
-      autoComplete="off"
-    >
-      <Input
-      type="number"
-        style={{ width: 500 }}
-        label="Understanding"
-        color="secondary"
-        focused="true"
-        placeholder="How Well Are You Understanding The Content?"
-        inputProps={ariaLabel}
-        value={understanding}
-        onChange={(e) => setUnderstanding(e.target.value)}
-      />
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">How Well Are You Understanding The Content?</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={understanding}
+          label="Understanding"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+        </Select>
+      </FormControl>
       <Button
         sx={{ fontFamily: "Rubik Bubbles" }}
         variant="contained"
-        onClick={() => setUnderstanding(understanding)}
+        onClick={handleNext}
       >
         Next
       </Button>
@@ -38,4 +57,14 @@ function Understanding() {
   );
 }
 
-export default Understanding;
+
+
+
+
+
+
+
+
+
+
+

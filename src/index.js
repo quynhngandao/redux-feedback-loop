@@ -8,17 +8,17 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-// admin 
+// feedbacks 
 const feedbacks = (state = [], action) => {
-    if (action.type === "SAVE_FEEDBACKS") {
-        return action.payload;
+    if (action.type === "FEEDBACKS") {
+        return action.payload;;
     }
     return state;
 }
 
 // feeling
 const feeling = (state = [], action) => {
-  if (action.type === "SAVE_FEELING") {
+  if (action.type === "FEELING") {
     return action.payload;
   }
   return state;
@@ -26,7 +26,7 @@ const feeling = (state = [], action) => {
 
 // understanding 
 const understanding = (state = [], action) => {
-    if (action.type === "SAVE_UNDERSTANDING") {
+    if (action.type === "UNDERSTANDING") {
       return action.payload;
     }
     return state;
@@ -34,7 +34,7 @@ const understanding = (state = [], action) => {
 
   // support 
 const support = (state = [], action) => {
-    if (action.type === "SAVE_SUPPORT") {
+    if (action.type === "SUPPORT") {
       return action.payload;
     }
     return state;
@@ -42,7 +42,7 @@ const support = (state = [], action) => {
 
     // comments 
 const comments = (state = [], action) => {
-    if (action.type === "SAVE_COMMENTS") {
+    if (action.type === "COMMENTS") {
       return action.payload;
     }
     return state;
