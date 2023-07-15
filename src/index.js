@@ -13,6 +13,7 @@ const feedback = (state = [], action) => {
     if (action.type === "SAVE_FEEDBACK") {
         return action.payload;
     }
+    return state;
 }
 
 // feeling
@@ -50,11 +51,11 @@ const comment = (state = [], action) => {
 // store
 const store = createStore(
   combineReducers({
+    feedback,
     feeling,
     comprehension,
     support,
-    comment,
-    feedback
+    comment
   }),
   applyMiddleware(logger)
 );
