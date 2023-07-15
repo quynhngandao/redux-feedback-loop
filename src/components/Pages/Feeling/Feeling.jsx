@@ -9,9 +9,6 @@ const ariaLabel = { "aria-label": "description" };
 function Feeling() {
   const [feeling, setFeeling] = useState("");
 
-  const handleChange = (e) => {
-    setFeeling(e.target.feeling);
-  };
   return (
     <Box
       component="form"
@@ -20,14 +17,20 @@ function Feeling() {
       autoComplete="off"
     >
       <Input
+      type="number"
         style={{ width: 500 }}
-        label="Support"
+        label="Feeling"
         color="secondary"
         placeholder="How Are You Feeling Today?"
         inputProps={ariaLabel}
         value={feeling}
+        onChange={(e) => setFeeling(e.target.value)}
       />
-      <Button variant="outlined"  onClick={handleChange}>
+      <Button
+        sx={{ fontFamily: "Rubik Bubbles" }}
+        variant="contained"
+        onClick={() => setFeeling(feeling)}
+      >
         Next
       </Button>
     </Box>

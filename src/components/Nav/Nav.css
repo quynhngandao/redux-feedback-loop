@@ -17,8 +17,6 @@
     max-width: 1500px;
   }
   
-
-  
   .nav-menu {
     display: flex;
     grid-template-columns: repeat(4, auto);
@@ -47,11 +45,7 @@
     border-bottom: 4px solid #fff;
     transition: all 0.2s ease-out;
   }
-  
-  .fa-bars {
-    color: #fff;
-  }
-  
+
   .nav-links-mobile {
     display: none;
   }
@@ -98,15 +92,6 @@
       border-radius: 0;
     }
   
-    .menu-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
   
     .fa-times {
       color: #fff;

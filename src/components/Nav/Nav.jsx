@@ -34,7 +34,7 @@ function Nav() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Home
                 </Button>
               </Link>
@@ -46,7 +46,7 @@ function Nav() {
                 
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#2979ff" ,fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Feeling
                 </Button>
               </Link>
@@ -57,7 +57,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined"sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined"sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Understanding
                 </Button>
               </Link>
@@ -68,7 +68,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Support
                 </Button>
               </Link>
@@ -80,7 +80,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Comment
                 </Button>
               </Link>
@@ -91,7 +91,7 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#5393ff"}} href="#outlined-buttons">
+                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} href="#outlined-buttons">
                   Review
                 </Button>
               </Link>

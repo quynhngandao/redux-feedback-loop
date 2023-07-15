@@ -8,9 +8,7 @@ const ariaLabel = { "aria-label": "description" };
 
 function Understanding() {
   const [understanding, setUnderstanding] = useState("");
-  const handleChange = (e) => {
-    setUnderstanding(e.target.understanding);
-  };
+
   return (
     <Box
       component="form"
@@ -19,6 +17,7 @@ function Understanding() {
       autoComplete="off"
     >
       <Input
+      type="number"
         style={{ width: 500 }}
         label="Understanding"
         color="secondary"
@@ -26,8 +25,13 @@ function Understanding() {
         placeholder="How Well Are You Understanding The Content?"
         inputProps={ariaLabel}
         value={understanding}
+        onChange={(e) => setUnderstanding(e.target.value)}
       />
-      <Button variant="outlined" onClick={handleChange}>
+      <Button
+        sx={{ fontFamily: "Rubik Bubbles" }}
+        variant="contained"
+        onClick={() => setUnderstanding(understanding)}
+      >
         Next
       </Button>
     </Box>

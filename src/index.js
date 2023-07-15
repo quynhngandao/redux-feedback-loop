@@ -24,9 +24,9 @@ const feeling = (state = [], action) => {
   return state;
 };
 
-// comprehension 
-const comprehension = (state = [], action) => {
-    if (action.type === "SAVE_COMPREHENSION") {
+// understanding 
+const understanding = (state = [], action) => {
+    if (action.type === "SAVE_UNDERSTANDING") {
       return action.payload;
     }
     return state;
@@ -41,8 +41,8 @@ const support = (state = [], action) => {
   };
 
     // comments 
-const comment = (state = [], action) => {
-    if (action.type === "SAVE_COMMENT") {
+const comments = (state = [], action) => {
+    if (action.type === "SAVE_COMMENTS") {
       return action.payload;
     }
     return state;
@@ -53,9 +53,9 @@ const store = createStore(
   combineReducers({
     feedback,
     feeling,
-    comprehension,
+    understanding,
     support,
-    comment
+    comments
   }),
   applyMiddleware(logger)
 );
