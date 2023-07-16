@@ -29,7 +29,7 @@ export default function Support () {
   }
 
   return (
-    <Box sx={{ minWidth: 500, margin:"auto"}}>
+    <Box sx={{ maxWidth: 500, margin:"auto"}}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">How Well Are You Feeling Supported Today?</InputLabel>
         <Select

@@ -29,7 +29,7 @@ const history = useHistory()
   }
 
   return (
-    <Box sx={{ minWidth: 500, margin:"auto"}}>
+    <Box sx={{ maxWidth: 500, margin:"auto"}}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">How Are You Feeling Today?</InputLabel>
         <Select
