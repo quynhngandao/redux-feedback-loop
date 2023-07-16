@@ -21,7 +21,7 @@ export default function Comments() {
   const handleNext = () => {
     // dispatch here to store
     dispatch({ type: "COMMENTS", payload: comments });
-    history.push("/submit");
+    history.push("/review");
   };
 
   return (

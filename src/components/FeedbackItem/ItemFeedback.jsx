@@ -2,6 +2,7 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ItemFeedback({feedback, handleDelete}) {
 
@@ -15,7 +16,7 @@ function ItemFeedback({feedback, handleDelete}) {
   };
 
   return (
-    <TableRow>
+    <TableRow className="result">
       <TableCell  sx={{ minWidth: 100, textAlign: "center" }}>{feedback.feeling}</TableCell>
       <TableCell  sx={{ minWidth: 100, textAlign: "center" }}>{feedback.understanding}</TableCell>
       <TableCell  sx={{ minWidth: 100, textAlign: "center" }}>{feedback.support}</TableCell>
@@ -23,9 +24,9 @@ function ItemFeedback({feedback, handleDelete}) {
       <TableCell sx={{ minWidth: 100, textAlign: "center" }}>
         <Button
           onClick={deleteFeedback}
-          variant="contained"
+          variant="outlined"
         >
-          DELETE
+           <DeleteIcon />
         </Button>
       </TableCell>
     </TableRow>

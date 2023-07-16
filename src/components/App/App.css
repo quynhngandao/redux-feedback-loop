@@ -3,14 +3,18 @@
   margin: 0;
   padding: 0;
   letter-spacing: 2px;
+  font-family: "Lilita One";
 }
 
-.App, .App-title, .App-header, .App-description {
+.App,
+.App-title,
+.App-header,
+.App-description {
   text-align: center;
-  color:
-  #2979ff;
+  color: #2979ff;
   font-weight: 800px;
-  font-family:'Lilita One';;
+  font-family: "Lilita One";
+  margin: 0;
 }
 
 .App-header {
@@ -22,16 +26,16 @@
 
 .App-title {
   font-size: 4em;
+  margin-bottom: 10px;
 }
 
 .App-description {
   font-size: large;
 }
 
-
 .nav {
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
 }
 
 ul {
@@ -40,16 +44,18 @@ ul {
 
 h1 {
   font-size: 4rem;
-  text-shadow: .5px .5px #ffffff;
+  text-shadow: 0.5px 0.5px #ffffff;
   margin-top: 0px;
   font-weight: 800px;
 }
 
 h2 {
   font-size: 2.5rem;
-  text-shadow: 2px 2px #000000a5;
+  text-shadow: 2px 1.5px #000000a5;
   margin-top: 10px;
   font-weight: 800px;
+
+  margin-bottom: 15px;
 }
 
 h3 {
@@ -67,10 +73,16 @@ h3 {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color:  #000000;
-    text-shadow: 1px 1px #000000a5;
-    margin-top: 0px;
-    font-weight: 800px;
-    font-family: 'Lilita One';
-word-spacing: 3px;
+  color: #2979ff;
+  text-shadow: 1px 1px #000000a5;
+  margin-top: 0px;
+  font-weight: 800px;
+  word-spacing: 5px;
+}
+
+.data {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 30px;
+  padding: 10px;
 }

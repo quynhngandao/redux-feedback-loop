@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -41,7 +41,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route  exact path="/admin">
+          <Route exact path="/admin">
             <Admin fetchFeedbacks={fetchFeedbacks} />
           </Route>
           <Route exact path="/">
@@ -56,8 +56,8 @@ function App() {
           <Route exact path="/comments">
             <Comments />
           </Route>
-          <Route exact path="/submit">
-            <Submit fetchFeedbacks={fetchFeedbacks}/>
+          <Route exact path="/review">
+            <Submit fetchFeedbacks={fetchFeedbacks} />
           </Route>
           <Route exact path="/thankyou">
             <ThankYou />

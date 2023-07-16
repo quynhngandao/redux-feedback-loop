@@ -3,27 +3,26 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import {useSelector } from "react-redux";
 import axios from "axios";
 import ListFeedback from "../ListFeedback/ListFeedback";
 
-function Admin ({fetchFeedbacks}) {
- // delete feedback from DB
- const handleDelete = (feedbackId) => {
-  axios
-    .delete(`/feedbacks/${feedbackId}`)
-    .then((res) => {
-      fetchFeedbacks();
-      console.log("success in DELETE to DB");
-    })
-    .catch((err) => {
-      console.log("error in DELETE to DB", err);
-    });
-};
+function Admin({ fetchFeedbacks }) {
+  // delete feedback from DB
+  const handleDelete = (feedbackId) => {
+    axios
+      .delete(`/feedbacks/${feedbackId}`)
+      .then((res) => {
+        fetchFeedbacks();
+        console.log("success in DELETE to DB");
+      })
+      .catch((err) => {
+        console.log("error in DELETE to DB", err);
+      });
+  };
 
   return (
     <>
-      <div>FEEDBACKS</div>
+      <h2>Review Feedbacks</h2>
       <div className="table">
         <TableContainer align="center">
           <Table
@@ -37,25 +36,46 @@ function Admin ({fetchFeedbacks}) {
             <TableHead className="table-head">
               <TableRow>
                 <TableCell
-                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                  sx={{
+                    minWidth: 100,
+                    maxWidth: 100,
+                    textAlign: "center",
+                    fontWeight: 700,
+                  }}
                 >
-                  Feeling
+                  FEELING
                 </TableCell>
                 <TableCell
-                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                  sx={{
+                    minWidth: 100,
+                    maxWidth: 100,
+                    textAlign: "center",
+                    fontWeight: 700,
+                  }}
                 >
-                  Understanding
+                  UNDERSTAND
                 </TableCell>
                 <TableCell
-                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                  sx={{
+                    minWidth: 100,
+                    maxWidth: 100,
+                    textAlign: "center",
+                    fontWeight: 700,
+                  }}
                 >
-                  Support
+                  SUPPORT
                 </TableCell>
-                <TableCell sx={{ minWidth: 300, textAlign: "center" }}>Comments</TableCell>
-                <TableCell sx={{ minWidth: 100, maxWidth: 100}}></TableCell>
+                <TableCell
+                  sx={{ minWidth: 300, textAlign: "center", fontWeight: 700 }}
+                >
+                  COMMENTS
+                </TableCell>
+                <TableCell
+                  sx={{ minWidth: 100, maxWidth: 100, fontWeight: 700 }}
+                ></TableCell>
               </TableRow>
             </TableHead>
-           <ListFeedback handleDelete={handleDelete}/>
+            <ListFeedback handleDelete={handleDelete} />
           </Table>
         </TableContainer>
       </div>

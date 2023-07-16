@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
 function Nav() {
@@ -26,28 +26,29 @@ function Nav() {
 
   return (
     <>
-      <nav className="navbar" >
+      <nav className="navbar">
         <div className="navbar-container">
-        <div className='menu-icon' onClick={handleClick}>
+          <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
-            </div>
+          </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/admin" className="nav-links" onClick={closeMobileMenu}>
-                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} >
-                  Admin
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  ADMIN
                 </Button>
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/"
-                className="nav-links"
-                
-                onClick={closeMobileMenu}
-              >
-                <Button variant="outlined" sx={{color: "#2979ff" ,fontFamily: 'Rubik Bubbles'}} >
-                  Feeling
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  FEELING
                 </Button>
               </Link>
             </li>
@@ -57,8 +58,11 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined"sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}}>
-                  Understanding
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  UNDERSTANDING
                 </Button>
               </Link>
             </li>
@@ -68,8 +72,11 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}}>
-                  Support
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  SUPPORT
                 </Button>
               </Link>
             </li>
@@ -80,24 +87,29 @@ function Nav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} >
-                  Comments
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  COMMENTS
                 </Button>
               </Link>
             </li>
 
             <li className="nav-item">
               <Link
-                to="/submit"
+                to="/review"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} >
-                  Submit
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#2979ff", fontFamily: "Rubik Bubbles" }}
+                >
+                  REVIEW
                 </Button>
               </Link>
             </li>
-    
           </ul>
         </div>
       </nav>
