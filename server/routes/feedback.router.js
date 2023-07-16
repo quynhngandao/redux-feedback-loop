@@ -7,11 +7,11 @@ router.get("/", (req, res) => {
   pool
     .query('SELECT * FROM "feedback" ORDER BY id;')
     .then((result) => {
-      console.log("DB query successful");
+      console.log("Success DB in GET");
       res.send(result.rows);
     })
     .catch((err) => {
-      console.log("Error DB query in GET /feedback", err);
+      console.log("Error DB in GET ", err);
       res.sendStatus(500);
     });
 });
@@ -29,13 +29,27 @@ router.post("/", (req, res) => {
       [feeling, understanding, support, comments]
     )
     .then((result) => {
-      console.log("Added input to DB", result);
+      console.log("Success POST to DB", result);
       res.sendStatus(201);
     })
     .catch((err) => {
-      console.log("Error adding input to DB", err);
+      console.log("Error POST to DB", err);
+      res.sendStatus(500);
+    });
+});
+
+// DELETE feedback
+router.delete("/:id", (req, res) => {
+  pool
+    .query(`DELETE FROM "feedback" WHERE id=$1`, [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("Error DELETE from DB ", err);
       res.sendStatus(500);
     });
 });
 
 module.exports = router;
+

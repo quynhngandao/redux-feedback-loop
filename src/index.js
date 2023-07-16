@@ -9,9 +9,8 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 // SWITCH STATEMENT
-
 const feedbacks = (
-  state = { },
+  state = [],
   action
 ) => {
   switch (action.type) {
@@ -29,6 +28,12 @@ const feedbacks = (
       break;
     case "CLEAR":
       return {};
+      break;
+      case "DELETE":
+        return state.filter((feedback) => feedback.id !== action.payload);
+      break;
+      case "FEEDBACKS":
+      return action.payload;
       break;
     default:
       return state;

@@ -85,6 +85,18 @@ function Nav() {
                 </Button>
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                to="/submit"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                <Button variant="outlined" sx={{color: "#2979ff", fontFamily: 'Rubik Bubbles'}} >
+                  Submit
+                </Button>
+              </Link>
+            </li>
     
           </ul>
         </div>

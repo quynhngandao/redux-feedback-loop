@@ -1,15 +1,25 @@
 import Table from "@mui/material/Table";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import ListFeedback from "../ListFeedback/ListFeedback";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import { useSelector } from "react-redux";
+import {useSelector } from "react-redux";
+import axios from "axios";
+import ListFeedback from "../ListFeedback/ListFeedback";
 
-
-function Admin () {
-const feedbacks = useSelector((store) => store.feedbacks)
-
+function Admin ({fetchFeedbacks}) {
+ // delete feedback from DB
+ const handleDelete = (feedbackId) => {
+  axios
+    .delete(`/feedbacks/${feedbackId}`)
+    .then((res) => {
+      fetchFeedbacks();
+      console.log("success in DELETE to DB");
+    })
+    .catch((err) => {
+      console.log("error in DELETE to DB", err);
+    });
+};
 
   return (
     <>
@@ -25,23 +35,27 @@ const feedbacks = useSelector((store) => store.feedbacks)
             aria-label="simple table"
           >
             <TableHead className="table-head">
-              <TableRow >
-                <TableCell sx={{ minWidth: 100, maxWidth: 100 , textAlign:"center"}}>
+              <TableRow>
+                <TableCell
+                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                >
                   Feeling
                 </TableCell>
-                <TableCell sx={{minWidth: 100, maxWidth: 100,textAlign:"center"}}>
+                <TableCell
+                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                >
                   Understanding
                 </TableCell>
-                <TableCell sx={{minWidth: 100, maxWidth: 100,textAlign:"center"}}>
+                <TableCell
+                  sx={{ minWidth: 100, maxWidth: 100, textAlign: "center" }}
+                >
                   Support
                 </TableCell>
-                <TableCell sx={{ minWidth: 300 }}>
-                  Comments
-                </TableCell>
-                {/* <TableCell sx={{ minWidth: 100, maxWidth: 100}}>Delete</TableCell> */}
+                <TableCell sx={{ minWidth: 300, textAlign: "center" }}>Comments</TableCell>
+                <TableCell sx={{ minWidth: 100, maxWidth: 100}}></TableCell>
               </TableRow>
             </TableHead>
-            <ListFeedback/>
+           <ListFeedback handleDelete={handleDelete}/>
           </Table>
         </TableContainer>
       </div>
