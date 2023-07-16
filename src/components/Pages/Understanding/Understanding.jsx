@@ -29,14 +29,15 @@ export default function Understanding () {
   }
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 500, margin:"auto"}}>
+
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">How Well Are You Understanding The Content?</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={understanding}
-          label="Understanding"
+          label="How Well Are You Understanding The Content?"
           onChange={handleChange}
         >
           <MenuItem value={1}>1</MenuItem>

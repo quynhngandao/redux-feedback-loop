@@ -8,7 +8,8 @@ import { useSelector } from "react-redux";
 
 
 function Admin () {
-const feedbacks = useSelector(store => store.feedbacks)
+const feedbacks = useSelector((store) => store.feedbacks)
+
 
   return (
     <>
@@ -31,13 +32,13 @@ const feedbacks = useSelector(store => store.feedbacks)
                 <TableCell sx={{minWidth: 100, maxWidth: 100,textAlign:"center"}}>
                   Understanding
                 </TableCell>
-                <TableCell sx={{minWidth: 100, maxWidth: 100}}>
+                <TableCell sx={{minWidth: 100, maxWidth: 100,textAlign:"center"}}>
                   Support
                 </TableCell>
                 <TableCell sx={{ minWidth: 300 }}>
                   Comments
                 </TableCell>
-                <TableCell sx={{ minWidth: 100, maxWidth: 100}}></TableCell>
+                {/* <TableCell sx={{ minWidth: 100, maxWidth: 100}}>Delete</TableCell> */}
               </TableRow>
             </TableHead>
             <ListFeedback/>

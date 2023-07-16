@@ -12,6 +12,7 @@ import Feeling from "../Pages/Feeling/Feeling";
 import Support from "../Pages/Support/Support";
 import Understanding from "../Pages/Understanding/Understanding";
 import Submit from "../Pages/Submit/Submit";
+import ThankYou from "../Pages/ThankYou/ThankYou";
 
 function App() {
   // dispatch
@@ -40,23 +41,26 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route  exact path="/admin">
             <Admin fetchFeedbacks={fetchFeedbacks} />
           </Route>
-          <Route path="/feeling">
+          <Route exact path="/">
             <Feeling />
           </Route>
-          <Route path="/understanding">
+          <Route exact path="/understanding">
             <Understanding />
           </Route>
-          <Route path="/support">
+          <Route exact path="/support">
             <Support />
           </Route>
-          <Route path="/comments">
+          <Route exact path="/comments">
             <Comments />
           </Route>
-          <Route path="/review">
-            <Submit />
+          <Route exact path="/submit">
+            <Submit fetchFeedbacks={fetchFeedbacks}/>
+          </Route>
+          <Route exact path="/thankyou">
+            <ThankYou />
           </Route>
         </Switch>
       </Router>

@@ -21,7 +21,7 @@ export default function Comments() {
   const handleNext = () => {
     // dispatch here to store
     dispatch({ type: "COMMENTS", payload: comments });
-    history.push("/review");
+    history.push("/submit");
   };
 
   return (
@@ -33,7 +33,7 @@ export default function Comments() {
     >
       <Input
         type="text"
-        style={{ width: 500 }}
+        style={{ minWidth: 300 }}
         label="Comments"
         color="secondary"
         focused="true"

@@ -10,7 +10,7 @@
   color:
   #2979ff;
   font-weight: 800px;
-  font-family: 'Rubik Bubbles', 'Lilita One';;
+  font-family:'Lilita One';;
 }
 
 .App-header {
@@ -67,9 +67,10 @@ h3 {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color:  #2979ff;
+  color:  #000000;
     text-shadow: 1px 1px #000000a5;
     margin-top: 0px;
     font-weight: 800px;
-    font-family: 'Rubik Bubbles', 'Lilita One';
+    font-family: 'Lilita One';
+word-spacing: 3px;
 }

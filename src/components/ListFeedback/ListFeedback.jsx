@@ -4,7 +4,7 @@ import ItemFeedback from "../FeedbackItem/ItemFeedback";
 
 function ListFeedback() {
   const feedbacks = useSelector((store) => store.feedbacks);
-console.log(feedbacks, "feedbacks")
+
   return (
     <TableBody>
       {feedbacks.map((feedback) => (

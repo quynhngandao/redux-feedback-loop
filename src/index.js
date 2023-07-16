@@ -8,54 +8,37 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-// feedbacks 
-const feedbacks = (state = [], action) => {
-    if (action.type === "FEEDBACKS") {
-        return action.payload;;
-    }
-    return state;
-}
+// SWITCH STATEMENT
 
-// feeling
-const feeling = (state = [], action) => {
-  if (action.type === "FEELING") {
-    return action.payload;
+const feedbacks = (
+  state = { },
+  action
+) => {
+  switch (action.type) {
+    case "FEELING":
+      return { ...state, feeling: action.payload };
+      break;
+    case "UNDERSTANDING":
+      return { ...state, understanding: action.payload };
+      break;
+    case "SUPPORT":
+      return { ...state, support: action.payload };
+      break;
+    case "COMMENTS":
+      return { ...state, comments: action.payload };
+      break;
+    case "CLEAR":
+      return {};
+      break;
+    default:
+      return state;
   }
-  return state;
 };
-
-// understanding 
-const understanding = (state = [], action) => {
-    if (action.type === "UNDERSTANDING") {
-      return action.payload;
-    }
-    return state;
-  };
-
-  // support 
-const support = (state = [], action) => {
-    if (action.type === "SUPPORT") {
-      return action.payload;
-    }
-    return state;
-  };
-
-    // comments 
-const comments = (state = [], action) => {
-    if (action.type === "COMMENTS") {
-      return action.payload;
-    }
-    return state;
-  };
 
 // store
 const store = createStore(
   combineReducers({
     feedbacks,
-    feeling,
-    understanding,
-    support,
-    comments
   }),
   applyMiddleware(logger)
 );
