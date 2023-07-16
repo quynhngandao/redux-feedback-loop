@@ -28,6 +28,9 @@ export default function Understanding () {
  history.push('/support')
   }
 
+    // Form Validation 
+    const isUnderstandingSelected = understanding !== '';
+
   return (
     <Box sx={{ maxWidth: 500, margin:"auto"}}>
 
@@ -39,6 +42,7 @@ export default function Understanding () {
           value={understanding}
           label="How Well Are You Understanding The Content?"
           onChange={handleChange}
+          required  // Add the required attribute for form validation
         >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
@@ -48,9 +52,10 @@ export default function Understanding () {
         </Select>
       </FormControl>
       <Button
-        sx={{ fontFamily: "Rubik Bubbles" }}
+        sx={{ fontFamily: "Rubik Bubbles" , margin: 5}}
         variant="contained"
         onClick={handleNext}
+        disabled={!isUnderstandingSelected}  // Disable the button if understanding is not selected
       >
         Next
       </Button>

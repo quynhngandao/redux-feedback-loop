@@ -25,8 +25,12 @@ export default function Support () {
   const handleNext = () => {
  // dispatch here to store 
  dispatch({type: "SUPPORT", payload: support})
+ // direct to next page 
  history.push('/comments')
   }
+
+  // Form Validation 
+  const isSupportSelected = support !== '';
 
   return (
     <Box sx={{ maxWidth: 500, margin:"auto"}}>
@@ -38,6 +42,7 @@ export default function Support () {
           value={support}
           label="How Well Are You Feeling Supported Today?"
           onChange={handleChange}
+          required // Add the required attribute for form validation
         >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
@@ -47,10 +52,11 @@ export default function Support () {
         </Select>
       </FormControl>
       <Button
-        sx={{ fontFamily: "Rubik Bubbles" }}
-        variant="contained"
-        onClick={handleNext}
-      >
+        sx={{ fontFamily: "Rubik Bubbles", margin:5}}
+        variant="contained" 
+        onClick={handleNext} 
+        disabled={!isSupportSelected}  // Disable the button if support is not selected
+      > 
         Next
       </Button>
     </Box>
