@@ -2,16 +2,17 @@ import TableBody from "@mui/material/TableBody";
 import { useSelector } from "react-redux";
 import ItemFeedback from "../FeedbackItem/ItemFeedback";
 
-function ListFeedback({ handleDelete }) {
-  const feedbacks = useSelector((store) => store.feedbacks);
+function ListFeedback({ fetchFeedbacks }) {
+ // useSelector 
+ const feedbacksReview = useSelector((store) => store.feedbacksReview);
 
   return (
     <TableBody>
-      {feedbacks.map((feedback) => (
+      {feedbacksReview.map((feedback) => (
         <ItemFeedback
           key={feedback.id}
           feedback={feedback}
-          handleDelete={handleDelete}
+          fetchFeedbacks={fetchFeedbacks}
         />
       ))}
     </TableBody>

@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 // SWITCH STATEMENT
-const feedbacks = (state = [], action) => {
+const feedbacks = (state = {}, action) => {
   switch (action.type) {
     case "FEELING":
       return { ...state, feeling: action.payload };
@@ -46,7 +46,7 @@ const feedbacksReview = (state = [], action) => {
 // store
 const store = createStore(
   combineReducers({
-    feedbacks,
+    feedbacks, feedbacksReview
   }),
   applyMiddleware(logger)
 );

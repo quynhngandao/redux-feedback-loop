@@ -3,22 +3,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import axios from "axios";
 import ListFeedback from "../ListFeedback/ListFeedback";
 
 function Admin({ fetchFeedbacks }) {
-  // delete feedback from DB
-  const handleDelete = (feedbackId) => {
-    axios
-      .delete(`/feedbacks/${feedbackId}`)
-      .then((res) => {
-        fetchFeedbacks();
-        console.log("success in DELETE to DB");
-      })
-      .catch((err) => {
-        console.log("error in DELETE to DB", err);
-      });
-  };
 
   return (
     <>
@@ -75,7 +62,7 @@ function Admin({ fetchFeedbacks }) {
                 ></TableCell>
               </TableRow>
             </TableHead>
-            <ListFeedback handleDelete={handleDelete} />
+            <ListFeedback fetchFeedbacks={fetchFeedbacks} />
           </Table>
         </TableContainer>
       </div>

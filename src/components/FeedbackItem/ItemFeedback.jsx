@@ -1,19 +1,22 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
 import DeleteIcon from '@mui/icons-material/Delete';
+import axios from "axios";
 
-function ItemFeedback({feedback, handleDelete}) {
-
-  const dispatch = useDispatch()
-
-  // delete feedback from DB
-  const deleteFeedback = () => {
-    handleDelete(feedback.id)
-        dispatch({ type: "DELETE", payload: feedback.id });
-        console.log("success in DELETE to DB");
-  };
+function ItemFeedback({feedback, fetchFeedbacks}) {
+// delete feedback from DB
+const handleDelete = () => {
+  axios
+    .delete(`/feedbacks/${feedback.id}`)
+    .then((res) => {
+      fetchFeedbacks();
+      console.log("success in DELETE to DB");
+    })
+    .catch((err) => {
+      console.log("error in DELETE to DB", err);
+    });
+};
 
   return (
     <TableRow className="result">
@@ -23,7 +26,7 @@ function ItemFeedback({feedback, handleDelete}) {
       <TableCell  sx={{ minWidth: 100, textAlign: "center" }}>{feedback.comments}</TableCell>
       <TableCell sx={{ minWidth: 100, textAlign: "center" }}>
         <Button
-          onClick={deleteFeedback}
+          onClick={handleDelete}
           variant="outlined"
         >
            <DeleteIcon />
