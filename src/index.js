@@ -26,16 +26,22 @@ const feedbacks = (state = [], action) => {
     case "CLEAR":
       return {};
       break;
-    case "DELETE":
-      return state.filter((feedback) => feedback.id !== action.payload);
-      break;
-    case "FEEDBACKS":
-      return action.payload;
-      break;
+    // case "DELETE":
+    //   return state.filter((feedback) => feedback.id !== action.payload);
+    //   break;
     default:
       return state;
+      break;
   }
 };
+
+// Feedbacks to review 
+const feedbacksReview = (state = [], action) => {
+  if (action.type === "FEEDBACKS") {
+    return action.payload
+  }
+  return state;
+}
 
 // store
 const store = createStore(
