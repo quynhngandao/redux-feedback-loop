@@ -1,14 +1,15 @@
 import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import { Button } from "@mui/material";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const ariaLabel = { "aria-label": "description" };
 
 export default function Comments() {
   const [comments, setComments] = useState("");
+  const commentsHistory = useSelector((store)=> store.feedbacks.comments)
   // dispatch input data to store
   const dispatch = useDispatch();
   // History
@@ -23,6 +24,14 @@ export default function Comments() {
     dispatch({ type: "COMMENTS", payload: comments });
     history.push("/review");
   };
+
+   // load feedbacks once
+   useEffect(() => {
+    if (commentsHistory){
+      setComments(commentsHistory)
+    }
+  }, []);
+
 
   return (
     <Box

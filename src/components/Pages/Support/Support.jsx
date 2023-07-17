@@ -5,13 +5,15 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Support () {
   // State
   const [support, setSupport] = useState('');
+  const supportHistory = useSelector((store)=> store.feedbacks.support)
   // Dispatch 
   const dispatch = useDispatch();
   // History
@@ -28,6 +30,13 @@ export default function Support () {
  // direct to next page 
  history.push('/comments')
   }
+
+ // load feedbacks once
+ useEffect(() => {
+  if (supportHistory) {
+    setSupport(supportHistory);
+  }
+}, []);
 
   // Form Validation 
   const isSupportSelected = support !== '';

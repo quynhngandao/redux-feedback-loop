@@ -41,9 +41,6 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/admin">
-            <Admin fetchFeedbacks={fetchFeedbacks} />
-          </Route>
           <Route exact path="/">
             <Feeling />
           </Route>
@@ -61,6 +58,9 @@ function App() {
           </Route>
           <Route exact path="/thankyou">
             <ThankYou />
+          </Route>
+          <Route exact path="/admin">
+            <Admin fetchFeedbacks={fetchFeedbacks} />
           </Route>
         </Switch>
       </Router>
