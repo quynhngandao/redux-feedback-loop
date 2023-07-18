@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ItemFeedback from "../FeedbackItem/ItemFeedback";
 
 function ListFeedback({ fetchFeedbacks }) {
- // useSelector 
+ // useSelector grab saved feedbacks array from store for looping -> feedback
  const feedbacksReview = useSelector((store) => store.feedbacksReview);
 
   return (

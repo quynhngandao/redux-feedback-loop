@@ -6,7 +6,6 @@ import TableCell from "@mui/material/TableCell";
 import ListFeedback from "../ListFeedback/ListFeedback";
 
 function Admin({ fetchFeedbacks }) {
-
   return (
     <>
       <h2>Review Feedbacks</h2>

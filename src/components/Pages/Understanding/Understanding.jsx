@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -10,28 +9,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 export default function Understanding() {
-  // State
+  v; // useSate
   const [understanding, setUnderstanding] = useState("");
+  // useSelector
   const understandingHistory = useSelector(
     (store) => store.feedbacks.understanding
   );
-  // Dispatch
+  // useDispatch
   const dispatch = useDispatch();
-  // History
+  // useHistory
   const history = useHistory();
-
+  // handle input change
   const handleChange = (event) => {
-    // set support to user input
+    // set support to input value
     setUnderstanding(event.target.value);
   };
-
+  // handle submit next button
   const handleNext = () => {
     // dispatch here to store
     dispatch({ type: "UNDERSTANDING", payload: understanding });
+    // go to comments page
     history.push("/support");
   };
 
-  // load feedbacks once
+  // If understandingHistory = true, set comments to understandingHistory
   useEffect(() => {
     if (understandingHistory) {
       setUnderstanding(understandingHistory);

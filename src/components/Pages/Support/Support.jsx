@@ -1,50 +1,52 @@
-import * as React from "react";
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import { Button } from "@mui/material";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function Support () {
-  // State
-  const [support, setSupport] = useState('');
-  const supportHistory = useSelector((store)=> store.feedbacks.support)
-  // Dispatch 
+export default function Support() {
+  // useSate
+  const [support, setSupport] = useState("");
+  // useSelector
+  const supportHistory = useSelector((store) => store.feedbacks.support);
+  // useDispatch
   const dispatch = useDispatch();
-  // History
-  const history = useHistory()
-
+  // useHistory
+  const history = useHistory();
+  // handle input change
   const handleChange = (event) => {
-    // set support to user input 
+    // set support to input value
     setSupport(event.target.value);
   };
-
+  // handle submit next button
   const handleNext = () => {
- // dispatch here to store 
- dispatch({type: "SUPPORT", payload: support})
- // direct to next page 
- history.push('/comments')
-  }
+    // dispatch data to store
+    dispatch({ type: "SUPPORT", payload: support });
+    // go to comments page
+    history.push("/comments");
+  };
 
- // load feedbacks once
- useEffect(() => {
-  if (supportHistory) {
-    setSupport(supportHistory);
-  }
-}, []);
+  // If supportHistory = true, set comments to supportHistory
+  useEffect(() => {
+    if (supportHistory) {
+      setSupport(supportHistory);
+    }
+  }, []);
 
-  // Form Validation 
-  const isSupportSelected = support !== '';
+  // Form Validation
+  const isSupportSelected = support !== "";
 
   return (
-    <Box sx={{ maxWidth: 500, margin:"auto"}}>
+    <Box sx={{ maxWidth: 500, margin: "auto" }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">How Well Are You Feeling Supported Today?</InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          How Well Are You Feeling Supported Today?
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -61,25 +63,13 @@ export default function Support () {
         </Select>
       </FormControl>
       <Button
-        sx={{ fontFamily: "Rubik Bubbles", margin:5}}
-        variant="contained" 
-        onClick={handleNext} 
-        disabled={!isSupportSelected}  // Disable the button if support is not selected
-      > 
+        sx={{ fontFamily: "Rubik Bubbles", margin: 5 }}
+        variant="contained"
+        onClick={handleNext}
+        disabled={!isSupportSelected} // Disable the button if support is not selected
+      >
         Next
       </Button>
     </Box>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

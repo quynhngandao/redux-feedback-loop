@@ -4,28 +4,26 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Submit({ fetchFeedbacks }) {
-  // History
-  const history = useHistory();
-
-  // grab feedbacks from store
-  const feedbacks = useSelector((store) => store.feedbacks);
-  console.log("feedbacks", feedbacks);
-
-  // POST feedback to database
+   // useSelector
+   const feedbacks = useSelector((store) => store.feedbacks);
+  // useHistory
+  const history = useHistory()
+  // handle submit feedback button
   const handleSubmit = (e) => {
+    // prevent form auto-submit 
     e.preventDefault();
-
+// // POST data to server
     axios
       .post("/feedbacks", feedbacks)
       .then((res) => {
         fetchFeedbacks();
-        console.log("success in POST to DB");
+        console.log("Success POST to server");
       })
       .catch((err) => {
-        console.log("error in POST to DB", err);
+        console.log("Error POST to server", err);
       });
 
-    // go to /thankyou page
+    // go to thank you page 
     history.push("/thankyou");
   };
 

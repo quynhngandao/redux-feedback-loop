@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 
 export default function ThankYou() {
-  // History
+  // useHistory
   const history = useHistory();
   // useDispatch
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function ThankYou() {
   const handleNext = () => {
     // go back to feeling page
     history.push("/");
-    // clear feedbacks
+    // dispatch data and clear feedbacks
     dispatch({ type: "CLEAR" });
   };
 

@@ -9,44 +9,49 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 // SWITCH STATEMENT
+// saved feedbacks to send to database
 const feedbacks = (state = {}, action) => {
   switch (action.type) {
+    // feeling
     case "FEELING":
       return { ...state, feeling: action.payload };
       break;
+    // understanding
     case "UNDERSTANDING":
       return { ...state, understanding: action.payload };
       break;
+    // support
     case "SUPPORT":
       return { ...state, support: action.payload };
       break;
+    // comments
     case "COMMENTS":
       return { ...state, comments: action.payload };
       break;
+    // clear feedbacks when "leave new feedback" is clicked
     case "CLEAR":
       return {};
       break;
-    // case "DELETE":
-    //   return state.filter((feedback) => feedback.id !== action.payload);
-    //   break;
+    // else statement
     default:
       return state;
       break;
   }
 };
 
-// Feedbacks to review 
+// Store the 4 saved responses for reviewing before submitting
 const feedbacksReview = (state = [], action) => {
   if (action.type === "FEEDBACKS") {
-    return action.payload
+    return action.payload;
   }
   return state;
-}
+};
 
 // store
 const store = createStore(
   combineReducers({
-    feedbacks, feedbacksReview
+    feedbacks,
+    feedbacksReview,
   }),
   applyMiddleware(logger)
 );

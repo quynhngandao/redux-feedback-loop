@@ -7,11 +7,11 @@ router.get("/", (req, res) => {
   pool
     .query('SELECT * FROM "feedback" ORDER BY id;')
     .then((result) => {
-      console.log("Success DB in GET");
+      console.log("Success GET from DB");
       res.send(result.rows);
     })
     .catch((err) => {
-      console.log("Error DB in GET ", err);
+      console.log("Error GET from DB ", err);
       res.sendStatus(500);
     });
 });
@@ -43,6 +43,7 @@ router.delete("/:id", (req, res) => {
   pool
     .query(`DELETE FROM "feedback" WHERE id=$1`, [req.params.id])
     .then((result) => {
+      console.log('Success DELETE from DB')
       res.sendStatus(200);
     })
     .catch((err) => {

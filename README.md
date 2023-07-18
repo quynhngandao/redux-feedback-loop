@@ -21,8 +21,8 @@ This is a feedback form built with React and Redux which collects user 4 differe
 
 ## Installation
 
-1. Create a database named `weekend-gallery`,
-2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. Please use [PostgreSQL] and [Postico].
+1. Create a database named `prime_feedback`,
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. You can use [PostgreSQL] and [Postico].
 3. Open up your editor of choice and run an `npm install`
 4. Open two terminal windows
 5. Run `npm run server` in your first terminal window
